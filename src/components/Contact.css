@@ -1,0 +1,51 @@
+/* ── CONTACT — mobile first ── */
+#contact {
+  background: var(--black);
+  text-align: center;
+}
+
+#contact .section-title { color: var(--warm-white); }
+#contact .section-label { color: var(--light-gray); }
+
+.contact-desc {
+  color: rgba(255,255,255,0.5);
+  font-size: 0.95rem;
+  max-width: 480px;
+  margin: 0 auto 3rem;
+  line-height: 1.9;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1px;
+  margin-bottom: 3rem;
+  background: rgba(255,255,255,0.08);
+}
+
+.contact-card {
+  padding: 2rem 1.5rem;
+  background: var(--off-black);
+}
+
+.contact-card-label {
+  font-size: 0.62rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  font-weight: 600;
+  margin-bottom: 0.7rem;
+}
+
+.contact-card-value {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  color: rgba(255,255,255,0.75);
+  font-style: italic;
+  line-height: 1.5;
+}
+
+/* ── TABLET ── */
+@media (min-width: 600px) {
+  .contact-grid { grid-template-columns: repeat(3, 1fr); }
+}

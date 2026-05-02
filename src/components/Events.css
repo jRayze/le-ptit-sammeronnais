@@ -1,0 +1,68 @@
+/* ── EVENTS — mobile first ── */
+#events { background: var(--off-white); }
+
+.events-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2px;
+  margin-top: 2.5rem;
+}
+
+.event-card {
+  background: var(--warm-white);
+  padding: 2rem 1.5rem 2rem 2rem;
+  border: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.25s;
+}
+
+.event-card:hover { border-color: var(--black); }
+
+.event-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px; height: 100%;
+  background: var(--black);
+}
+
+.event-num {
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  color: var(--light-gray);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.event-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  color: var(--black);
+  margin-bottom: 0.6rem;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.event-desc {
+  font-size: 0.85rem;
+  color: var(--mid-gray);
+  line-height: 1.7;
+}
+
+.events-cta {
+  margin-top: 2.5rem;
+  text-align: center;
+}
+
+/* ── TABLET ── */
+@media (min-width: 600px) {
+  .events-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* ── DESKTOP ── */
+@media (min-width: 900px) {
+  .events-grid { grid-template-columns: repeat(3, 1fr); }
+  .event-card { padding: 2.5rem 2rem; }
+}

@@ -1,0 +1,57 @@
+/* ── MENU — mobile first ── */
+#menu { background: var(--black); }
+
+#menu .section-title { color: var(--warm-white); }
+#menu .section-label { color: var(--light-gray); }
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1px;
+  margin-top: 2.5rem;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.menu-card {
+  padding: 2rem 1.5rem;
+  background: rgba(255,255,255,0.02);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  transition: background 0.25s;
+}
+
+.menu-card:hover { background: rgba(255,255,255,0.05); }
+
+.menu-card-num {
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,0.25);
+  font-weight: 500;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.menu-card-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.35rem;
+  color: var(--off-white);
+  font-style: italic;
+  font-weight: 400;
+  margin-bottom: 0.6rem;
+}
+
+.menu-card-desc {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.38);
+  line-height: 1.7;
+}
+
+/* ── TABLET ── */
+@media (min-width: 580px) {
+  .menu-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* ── DESKTOP ── */
+@media (min-width: 900px) {
+  .menu-grid { grid-template-columns: repeat(3, 1fr); }
+  .menu-card { padding: 2.5rem 2rem; }
+}

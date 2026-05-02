@@ -1,0 +1,87 @@
+/* ── GALLERY — mobile first ── */
+#galerie { background: var(--off-white); }
+
+.gallery-intro {
+  color: var(--mid-gray);
+  font-size: 0.95rem;
+  margin-bottom: 2rem;
+  line-height: 1.8;
+  max-width: 480px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  margin-bottom: 2.5rem;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: var(--off-white);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.06);
+}
+
+.gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0);
+  display: flex;
+  align-items: flex-end;
+  padding: 1rem;
+  transition: background 0.3s;
+}
+
+.gallery-item:hover .gallery-overlay {
+  background: rgba(0,0,0,0.45);
+}
+
+.gallery-overlay span {
+  color: white;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.3s, transform 0.3s;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+}
+
+.gallery-item:hover .gallery-overlay span {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.gallery-cta {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+/* ── TABLET ── */
+@media (min-width: 580px) {
+  .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ── DESKTOP ── */
+@media (min-width: 900px) {
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+  /* Make first item and 5th item taller for a masonry-like feel */
+  .gallery-item:nth-child(1) { grid-row: span 2; aspect-ratio: auto; min-height: 400px; }
+  .gallery-item:nth-child(5) { grid-column: span 2; aspect-ratio: 16/7; }
+}
