@@ -27,7 +27,10 @@ export default function Contact() {
           <div className="contact-card">
             <div className="contact-card-label">Ouverture</div>
             <div className="contact-card-value">
-              Mar–Sam midi &amp; soir<br />Lun &amp; Dim fermés
+              Lun–Mer : midi<br />
+              Mar–Jeu : midi &amp; soir<br />
+              Ven–Sam : midi &amp; soir<br />
+              Dim : fermé
             </div>
           </div>
           <div className="contact-card">
