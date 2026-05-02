@@ -11,11 +11,13 @@ footer {
 }
 
 .footer-logo-img {
-  width: 36px;
-  height: 36px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
-  opacity: 0.6;
-  filter: brightness(0) invert(1);
+  object-fit: cover;
+  opacity: 0.9;
+  /* fond blanc visible sur le footer sombre — aucun filtre */
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.1);
 }
 
 .footer-info {
