@@ -36,9 +36,20 @@ export default function Ambiance() {
 
           <div className="reveal">
             <div className="visual-frame">
-              <span className="badge">⭐ 4,7 / 5</span>
               <div className="vf-title">Cuisine maison</div>
               <div className="vf-sub">généreuse &amp; authentique</div>
+              <div className="vf-rating">
+                <span className="vf-stars">★★★★★</span>
+                <span className="vf-score">4,7 / 5</span>
+                <a
+                  href="https://www.facebook.com/PTITSAMMERONNAIS/reviews"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="vf-source"
+                >
+                  Avis Facebook
+                </a>
+              </div>
             </div>
           </div>
         </div>

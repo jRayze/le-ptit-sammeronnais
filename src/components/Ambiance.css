@@ -70,19 +70,43 @@
   color: var(--mid-gray);
   letter-spacing: 0.2em;
   text-transform: uppercase;
+  margin-bottom: 1.5rem;
 }
 
-.badge {
-  position: absolute;
-  top: -1px; right: -1px;
-  background: var(--black);
-  color: var(--warm-white);
-  font-size: 0.65rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  padding: 0.4rem 0.9rem;
+.vf-rating {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--border);
 }
+
+.vf-stars {
+  color: var(--black);
+  font-size: 1rem;
+  letter-spacing: 2px;
+}
+
+.vf-score {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--black);
+}
+
+.vf-source {
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--light-gray);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 1px;
+  transition: color 0.2s;
+}
+
+.vf-source:hover { color: var(--mid-gray); }
 
 /* ── DESKTOP ── */
 @media (min-width: 769px) {

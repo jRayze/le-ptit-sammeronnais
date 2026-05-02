@@ -1,58 +1,71 @@
+import { useState } from 'react'
 import './Gallery.css'
 
 /*
- * GALERIE – Pour ajouter vos propres photos :
+ * ──────────────────────────────────────────────────────
+ * GALERIE — Comment ajouter vos photos Instagram :
  *
- * 1. Placez vos images dans le dossier /public/gallery/
- *    Exemple : /public/gallery/photo1.jpg, photo2.jpg, etc.
+ * 1. Sur Instagram (mobile ou PC) :
+ *    - Ouvre la photo → "..." → "Copier le lien"
+ *    - Ou appui long sur la photo → "Enregistrer"
  *
- * 2. Remplacez les entrées dans le tableau `photos` ci-dessous :
- *    { src: '/gallery/photo1.jpg', alt: 'Description de la photo' }
+ * 2. Place les fichiers dans :
+ *    /public/gallery/
  *
- * 3. Les photos Facebook peuvent être téléchargées depuis :
- *    https://www.facebook.com/PTITSAMMERONNAIS
- *    (clic droit → Enregistrer l'image sous)
+ * 3. Mets à jour le tableau `photos` ci-dessous :
+ *    { src: '/gallery/nom-du-fichier.jpg', alt: 'Description' }
  *
- * Taille recommandée : environ 800×600px, format JPG ou WebP
+ * Formats acceptés : JPG, JPEG, PNG, WebP
+ * Taille idéale   : 800×800px ou 1080×1080px (carré Instagram)
+ * ──────────────────────────────────────────────────────
  */
+
 const photos = [
-  {
-    src: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=75',
-    alt: 'Ambiance chaleureuse du restaurant',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&q=75',
-    alt: 'Plats généreux et savoureux',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1567521464027-f127ff144326?w=600&q=75',
-    alt: 'Soirée conviviale entre amis',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1544148103-0773bf10d330?w=600&q=75',
-    alt: 'Bar chaleureux',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=75',
-    alt: 'Cuisine généreuse',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?w=600&q=75',
-    alt: 'Moments festifs',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&q=75',
-    alt: 'Salle du restaurant',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1600891964092-4316c288032e?w=600&q=75',
-    alt: 'Burgers maison',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1551218808-94e220e084d2?w=600&q=75',
-    alt: 'Animations et événements',
-  },
+  // ← Remplace les chemins par tes vraies photos :
+  // { src: '/gallery/soiree-karaoké.jpg',   alt: 'Soirée karaoké' },
+  // { src: '/gallery/raclette-friends.jpg', alt: 'Raclette entre amis' },
+  // { src: '/gallery/cocktails.jpg',        alt: 'Cocktails maison' },
+  // { src: '/gallery/plats.jpg',            alt: 'Nos plats du moment' },
+  // { src: '/gallery/terrasse.jpg',         alt: 'La terrasse' },
+  // { src: '/gallery/burger.jpg',           alt: 'Burger maison' },
+  //
+  // En attendant tes photos, des emplacements vides sont affichés :
+  { src: null, alt: 'Ambiance du restaurant' },
+  { src: null, alt: 'Nos plats' },
+  { src: null, alt: 'Soirée festive' },
+  { src: null, alt: 'Bar & cocktails' },
+  { src: null, alt: 'Événement spécial' },
+  { src: null, alt: 'Cuisine maison' },
 ]
+
+function GalleryItem({ src, alt, index }) {
+  const [errored, setErrored] = useState(false)
+  const missing = !src || errored
+
+  return (
+    <div className={missing ? 'gallery-item placeholder' : 'gallery-item reveal'}>
+      {missing ? (
+        <div className="gallery-placeholder-inner">
+          <span className="gallery-placeholder-icon">📷</span>
+          <span className="gallery-placeholder-text">Photo à venir</span>
+        </div>
+      ) : (
+        <>
+          <img
+            src={src}
+            alt={alt}
+            loading="lazy"
+            decoding="async"
+            onError={() => setErrored(true)}
+          />
+          <div className="gallery-overlay">
+            <span>{alt}</span>
+          </div>
+        </>
+      )}
+    </div>
+  )
+}
 
 export default function Gallery() {
   return (
@@ -69,28 +82,18 @@ export default function Gallery() {
 
         <div className="gallery-grid">
           {photos.map((photo, i) => (
-            <div className="gallery-item reveal" key={i}>
-              <img
-                src={photo.src}
-                alt={photo.alt}
-                loading="lazy"
-                decoding="async"
-              />
-              <div className="gallery-overlay">
-                <span>{photo.alt}</span>
-              </div>
-            </div>
+            <GalleryItem key={i} index={i} src={photo.src} alt={photo.alt} />
           ))}
         </div>
 
         <div className="gallery-cta reveal">
           <a
-            href="https://www.facebook.com/PTITSAMMERONNAIS"
+            href="https://www.instagram.com/le_ptit_sammeronnais/"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-ghost"
           >
-            ↗ Voir toutes les photos sur Facebook
+            ↗ Voir toutes nos photos sur Instagram
           </a>
         </div>
       </div>
