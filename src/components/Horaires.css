@@ -63,6 +63,9 @@
 
 .info-block-value a:hover { color: var(--mid-gray); }
 
+.social-links { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; }
+.social-sep { color: var(--light-gray); font-style: normal; }
+
 /* ── DESKTOP ── */
 @media (min-width: 769px) {
   .hours-layout {

@@ -10,7 +10,7 @@ export default function Footer() {
         <br />
         54 Rue de Metz · 77260 Sammeron
         <br />
-        Mar–Sam : midi &amp; soir
+        <a href="tel:+33160321657" className="footer-tel">01 60 32 16 57</a>
       </div>
       <ul className="footer-links">
         <li>
@@ -20,6 +20,15 @@ export default function Footer() {
             rel="noopener noreferrer"
           >
             Facebook
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://www.instagram.com/le_ptit_sammeronnais/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Instagram
           </a>
         </li>
         <li>

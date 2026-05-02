@@ -39,6 +39,17 @@ export default function Nav() {
         <li><a href="#horaires" onClick={close}>Horaires</a></li>
         <li>
           <a
+            href="https://www.instagram.com/le_ptit_sammeronnais/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="nav-social"
+            onClick={close}
+          >
+            Instagram
+          </a>
+        </li>
+        <li>
+          <a
             href="https://www.choix-resto.com"
             target="_blank"
             rel="noopener noreferrer"
